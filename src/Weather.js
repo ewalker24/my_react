@@ -40,14 +40,16 @@ export default function Weather() {
 
   if (loaded) {
     return (
-      <div>
-        <div>{form}</div>
+      <div className="container">
+        <div className="m-5">{form}</div>
         <h2>{city}</h2>
         <h4>{Math.round(temp)}℃</h4>
         <div>Local time is 5:21pm PST</div>
         <div>Wind:{wind}</div>
         <div>Humidity:{humidity}</div>
-        <h5 className="card-title">5 day forecast</h5>
+        <div className="m-5">
+          <h5 className="card-title">5 day forecast</h5>
+        </div>
         <p className="card-text">
           <div className="container">
             <div className="row">
@@ -90,7 +92,7 @@ export default function Weather() {
               </div>
             </div>
           </div>
-          <p className="credits">
+          <p className="credits mt-5">
             <a href="https://github.com/ewalker24/Lesson4shecodes/tree/main">
               Open Source Code
             </a>{" "}
