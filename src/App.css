@@ -2,37 +2,66 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2,
+h5,
+p {
+  font-family: "Roboto Mono", monospace;
+  font-family: "Titillium Web", sans-serif;
+}
+h2,
+h4,
+h5 {
+  text-align: center;
+}
+h4 {
+  font-size: 64px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.col {
+  font-family: "Roboto Mono", monospace;
+  font-family: "Titillium Web", sans-serif;
+}
+#search-button,
+#current-location {
+  font-family: "Roboto Mono", monospace;
+  font-family: "Titillium Web", sans-serif;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #8fbbb0;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-body {
+  color: #fff;
+  background: #8fbbb0;
+}
+.time {
+  font-family: "Roboto Mono", monospace;
+  font-family: "Titillium Web", sans-serif;
+  text-align: right;
+}
+.search {
+  border: 1px solid #fff;
+  background: #8fc6b8;
+  border-radius: 5px;
+}
+.sun-image {
+  text-align: center;
+}
+.credits {
+  font-size: 14px;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+::placeholder {
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Titillium Web", sans-serif;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#wind,
+#humidity {
+  text-align: right;
+}
+#degrees {
+  text-align: center;
 }
