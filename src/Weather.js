@@ -93,9 +93,7 @@ export default function Weather() {
             </div>
           </div>
           <p className="credits mt-5">
-            <a href="https://github.com/ewalker24/Lesson4shecodes/tree/main">
-              Open Source Code
-            </a>{" "}
+            <a href="https://github.com/ewalker24/my_react">Open Source Code</a>{" "}
             by Emily Walker
           </p>
         </p>
