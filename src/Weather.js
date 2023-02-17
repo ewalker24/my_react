@@ -3,29 +3,32 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  let [loaded, setLoaded] = useState(false);
-  let [city, setCity] = useState("");
-  let [wind, setWind] = useState(null);
-  let [humidity, setHumidity] = useState(null);
-  let [temp, setTemp] = useState(null);
+  const [weatherData, setWeatherData] = useState({ loaded: false });
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "094780c710fa4efd669f0df8c3991927";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "047ff5f243b184d84367a2f1o1cta7f9";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${weatherData.city}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(showWeather);
   }
 
   function showWeather(response) {
-    setLoaded(true);
-    setTemp(response.data.main.temp);
-    setHumidity(response.data.main.humidity);
-    setWind(response.data.wind.speed);
-    setTemp(response.data.main.temp);
+    console.log(response.data);
+
+    setWeatherData({
+      loaded: true,
+      city: response.data.city,
+      temperature: response.data.temperature,
+      wind: response.data.wind,
+      humidity: response.data.temperature.humidity,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon_url,
+    });
   }
-  function cityInput(event) {
-    setCity(event.target.value);
+  function cityInput(response) {
+    setWeatherData({ city: response.data.city });
   }
+
   let form = (
     <form onSubmit={handleSubmit}>
       <input
@@ -40,30 +43,32 @@ export default function Weather() {
     </form>
   );
 
-  if (loaded) {
+  if (weatherData.loaded) {
     return (
       <div className="Weather">
         <div className="m-5">{form}</div>
         <div className="weatherUpdate">
-          <h1>{city}</h1>
+          <h1 className="text-capitalize">{weatherData.city}</h1>
           <span className="clearfix">
             <span className="img">
               <img
-                src="https://ssl.gstatic.com/onebox/weather/48/sunny.png"
-                alt="sun"
+                src={weatherData.icon}
+                alt={weatherData.description}
                 width="30px"
-                className="float-left mb-3"
+                className="float-left mb-3 me-3"
               />
             </span>
             <span className="float-left">
-              <span className="temperature">{Math.round(temp)}</span>
-              <span className="units"> ℃ | ℉</span>
+              <span className="temperature">
+                {Math.round(weatherData.temperature)}
+              </span>
+              <span className="units"> ℉ | ℃ </span>
             </span>
           </span>
-
-          <div>Local time is 5:21pm PST</div>
-          <div>Wind: {Math.round(wind)} mph</div>
-          <div>Humidity: {humidity}%</div>
+          <div className="text-capitalize">{weatherData.description}</div>
+          <div>Local time is 5:21pm pst</div>
+          <div>Wind: {Math.round(weatherData.wind)} mph</div>
+          <div>Humidity: {weatherData.humidity}%</div>
         </div>
         <div className="m-5">
           <h5 className="card-title">5 day forecast</h5>
@@ -74,8 +79,8 @@ export default function Weather() {
               <div className="col">
                 Wednesday
                 <img
-                  src="https://ssl.gstatic.com/onebox/weather/48/sunny.png"
-                  alt="sun"
+                  src={weatherData.icon}
+                  alt={weatherData.description}
                   width="30px"
                 />
                 <div> 78℉ / 59℉ </div>
@@ -83,8 +88,8 @@ export default function Weather() {
               <div className="col">
                 Thursday
                 <img
-                  src="https://ssl.gstatic.com/onebox/weather/48/sunny.png"
-                  alt="sun"
+                  src={weatherData.icon}
+                  alt={weatherData.description}
                   width="30px"
                 />
                 <div> 77℉ / 57℉ </div>
@@ -93,8 +98,8 @@ export default function Weather() {
                 Friday
                 <div>
                   <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                    alt="partly cloudy"
+                    src={weatherData.icon}
+                    alt={weatherData.description}
                     width="30px"
                   />
                 </div>
@@ -103,8 +108,8 @@ export default function Weather() {
               <div className="col">
                 Saturday
                 <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="partly cloudy"
+                  src={weatherData.icon}
+                  alt={weatherData.description}
                   width="30px"
                 />
                 <div>63℉ / 49℉ </div>
@@ -112,8 +117,8 @@ export default function Weather() {
               <div className="col">
                 Sunday{" "}
                 <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="partly cloudy"
+                  src={weatherData.icon}
+                  alt={weatherData.description}
                   width="30px"
                 />
                 <div>60℉ / 46℉</div>
