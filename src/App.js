@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Weather from "./Weather.js";
-import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
