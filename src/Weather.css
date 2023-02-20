@@ -46,3 +46,6 @@
   font-weight: 400;
   line-height: 64px;
 }
+input:focus {
+  outline: none;
+}
