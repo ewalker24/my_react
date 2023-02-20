@@ -25,7 +25,7 @@ export default function WeatherInfo(props) {
         <div>Wind: {Math.round(props.data.wind)} mph</div>
         <div>Humidity: {props.data.humidity}%</div>
       </div>
-      <div className="m-5">
+      {/* <div className="m-5">
         <h5 className="card-title">5 day forecast</h5>
       </div>
       <div className="card-text">
@@ -79,18 +79,18 @@ export default function WeatherInfo(props) {
               <div>60℉ / 46℉</div>
             </div>
           </div>
-        </div>
-        <div className="credits mt-3">
-          <span>
-            This project was coded by{" "}
-            <a href="https://stately-blini-d72870.netlify.app/">Emily Walker</a>{" "}
-            and is{" "}
-            <a href="https://github.com/ewalker24/my_react">
-              open-sourced on GitHub
-            </a>
-          </span>{" "}
-        </div>
+        </div> */}
+      <div className="credits mt-3">
+        <span>
+          This project was coded by{" "}
+          <a href="https://stately-blini-d72870.netlify.app/">Emily Walker</a>{" "}
+          and is{" "}
+          <a href="https://github.com/ewalker24/my_react">
+            open-sourced on GitHub
+          </a>
+        </span>{" "}
       </div>
     </div>
+    // </div>
   );
 }
