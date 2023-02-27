@@ -2,7 +2,6 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherConversion from "./WeatherConversion";
-import Forecast from "./Forecast";
 
 export default function WeatherInfo(props) {
   return (
@@ -25,18 +24,6 @@ export default function WeatherInfo(props) {
         </div>
         <div>Wind: {Math.round(props.data.wind)} mph</div>
         <div>Humidity: {props.data.humidity}%</div>
-        <Forecast />
-      </div>
-
-      <div className="credits mt-3">
-        <span>
-          This project was coded by{" "}
-          <a href="https://stately-blini-d72870.netlify.app/">Emily Walker</a>{" "}
-          and is{" "}
-          <a href="https://github.com/ewalker24/my_react">
-            open-sourced on GitHub
-          </a>
-        </span>{" "}
       </div>
     </div>
   );
