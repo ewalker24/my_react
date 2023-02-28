@@ -18,10 +18,10 @@ export default function WeatherInfo(props) {
             />
           </span>
         </span>
-        <div className="text-capitalize">{props.data.description}</div>
         <div>
           <FormattedDate date={props.data.date} />{" "}
         </div>
+        <div className="text-capitalize">{props.data.description}</div>
         <div>Wind: {Math.round(props.data.wind)} mph</div>
         <div>Humidity: {props.data.humidity}%</div>
       </div>
